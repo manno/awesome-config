@@ -5,11 +5,11 @@ do
     local cmds =
     {
 		"awsetbg ~/.local/share/wallpaper.png",
-		"xcompmgr &",
 		"gnome-session &",
-		"~/.i3/bin/pa-applet &",
-		"/opt/synapse/bin/synapse -s &",
+		"xcompmgr &",
 		"tomboy &",
+		"/opt/synapse/bin/synapse -s &",
+		"~/.i3/bin/pa-applet &",
 		"~/.i3/bin/pidgin  &",
 		"~/.i3/bin/xinput-tp.sh &",
 		"~/.i3/bin/i3keymap &"
