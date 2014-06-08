@@ -205,7 +205,7 @@ globalkeys = awful.util.table.join(
 	awful.key({ "Mod1", "Control" }, "l", function () awful.util.spawn("gnome-screensaver-command -l") end),
 	awful.key({ "Alt",            }, "F2", function () awful.util.spawn("gmrun") end),
 	-- shutdown/suspend button
-	awful.key({ modkey,           }, "Delete", function() awful.util.spawn_with_shell("~/.i3/bin/i3exit.py") end),
+	awful.key({ modkey,           }, "Delete", function() awful.util.spawn_with_shell("~/.config/awesome/bin/exit.py") end),
 	-- # reset xrandr displays
 	awful.key({ modkey,           }, "F12", function() awful.util.spawn_with_shell("~/.i3/bin/i3xrandr") end),
 	-- # screenshot key
