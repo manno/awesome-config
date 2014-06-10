@@ -7,6 +7,7 @@ require("beautiful")
 -- Notification library
 require("naughty")
 require("lib/titlebar")
+require("lib/navigation")
 
 -- Load Debian menu entries
 require("debian.menu")
@@ -238,22 +239,22 @@ globalkeys = awful.util.table.join(
 	-- TODO unlearn i3 config emulation:
     awful.key({ modkey,           }, "Left",
         function ()
-            awful.client.focus.byidx( 1)
+            navigation.global_bydirection("left")
             if client.focus then client.focus:raise() end
         end),
     awful.key({ modkey,           }, "Right",
         function ()
-            awful.client.focus.byidx(-1)
+            navigation.global_bydirection("right")
             if client.focus then client.focus:raise() end
         end),
     awful.key({ modkey,           }, "Up",
         function ()
-            awful.client.focus.byidx( 1)
+            navigation.global_bydirection("up")
             if client.focus then client.focus:raise() end
         end),
     awful.key({ modkey,           }, "Down",
         function ()
-            awful.client.focus.byidx(-1)
+            navigation.global_bydirection("down")
             if client.focus then client.focus:raise() end
         end),
 
