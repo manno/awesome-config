@@ -36,6 +36,7 @@ class actions:
         self.disable_buttons()
         self.status.set_label("Suspending, please standby...")
         os.system("sudo pm-suspend")
+        os.system("gnome-screensaver-command -l")
         gtk.main_quit()
 
     def reboot_action(self,btn):
