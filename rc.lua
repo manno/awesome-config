@@ -274,9 +274,11 @@ globalkeys = awful.util.table.join(
         end),
 
 	-- TODO unlearn i3 config emulation:
-    awful.key({ modkey, "Control" }, "Left", function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey, "Control" }, "Left",  function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "Right", function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey, "Shift"   }, "Left", function () awful.client.swap.byidx(  1)    end),
+    awful.key({ modkey            }, "z",     function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey            }, "x",     function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey, "Shift"   }, "Left",  function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "Right", function () awful.client.swap.byidx( -1)    end),
 
     -- Standard program
@@ -298,7 +300,7 @@ globalkeys = awful.util.table.join(
     -- Prompt
     awful.key({ modkey            },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
-    awful.key({ modkey            }, "x",
+    awful.key({ modkey, "Control" }, "x",
               function ()
                   awful.prompt.run({ prompt = "Run Lua code: " },
                   mypromptbox[mouse.screen].widget,
