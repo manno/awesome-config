@@ -257,6 +257,14 @@ globalkeys = awful.util.table.join(
             navigation.global_bydirection("down")
             if client.focus then client.focus:raise() end
         end),
+    awful.key({ modkey            }, "z",     
+        function () 
+            navigation.movetagtoscreen(tags, 1)
+        end),
+    awful.key({ modkey            }, "x",
+        function () 
+            navigation.movetagtoscreen(tags, -1)
+        end),
 
     -- awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
 
@@ -277,8 +285,6 @@ globalkeys = awful.util.table.join(
 	-- TODO unlearn i3 config emulation:
     awful.key({ modkey, "Control" }, "Left",  function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "Right", function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey            }, "z",     function () awful.screen.focus_relative( 1) end),
-    awful.key({ modkey            }, "x",     function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey, "Shift"   }, "Left",  function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "Right", function () awful.client.swap.byidx( -1)    end),
 

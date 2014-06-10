@@ -9,6 +9,7 @@ local capi =
     screen = screen
 }
 
+local tag    = require("awful.tag")
 local client = require("awful.client")
 local screen = require("awful.screen")
 
@@ -151,6 +152,29 @@ function global_bydirection(dir, c)
             if target then
                 capi.client.focus = cltbl[target]
             end
+        end
+    end
+end
+
+
+function movetagtoscreen(tags, offs)
+    local sel = c or capi.client.focus
+    local scr = capi.mouse.screen
+    if sel then
+        scr = sel.screen
+    end
+
+    local i = tag.getidx()
+    local from_tag = tags[scr][i]
+    local n = scr + offs
+    if n > capi.screen.count() or n < 1 or n ==  scr then
+        return
+    end
+
+    local to_tag = tags[n][i]
+    if to_tag then
+        for i, c in ipairs(from_tag:clients()) do
+            client.movetotag(to_tag, c)
         end
     end
 end
