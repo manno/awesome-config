@@ -56,8 +56,8 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
-    awful.layout.suit.tile,
     awful.layout.suit.tile.left,
+    awful.layout.suit.tile,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
     awful.layout.suit.fair,
@@ -259,11 +259,11 @@ globalkeys = awful.util.table.join(
         end),
     awful.key({ modkey            }, "z",     
         function () 
-            navigation.movetagtoscreen(tags, 1)
+            navigation.movetagtoscreen(tags,-1)
         end),
     awful.key({ modkey            }, "x",
         function () 
-            navigation.movetagtoscreen(tags, -1)
+            navigation.movetagtoscreen(tags, 1)
         end),
 
     -- awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
