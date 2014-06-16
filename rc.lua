@@ -6,6 +6,7 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
+require("obvious.battery")
 require("lib/titlebar")
 require("lib/navigation")
 
@@ -181,6 +182,7 @@ for s = 1, screen.count() do
             layout = awful.widget.layout.horizontal.leftright
         },
         mylayoutbox[s],
+        obvious.battery(),
         mytextclock,
         s == 1 and mysystray or nil,
         mytasklist[s],
