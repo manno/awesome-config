@@ -16,7 +16,7 @@ local function assign_tag(rule, tag)
 	add_rule({ rule = rule, properties = tag })
 end
 
-assign_tag({ class = "Firefox" }, { tag = tags[1][2] })
+assign_tag({ class = "Firefox" }, { tag = tags[2][2] })
 assign_tag({ class = "Google-chrome-stable" }, { tag = tags[1][3] })
 assign_tag({ class = "Pidgin" }, { tag = tags[1][4] })
 assign_tag({ class = "Evolution" }, { tag = tags[1][5] })
