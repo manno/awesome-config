@@ -13,14 +13,22 @@ local function fullscreen(rule)
 end
 
 local function assign_tag(rule, tag)
-	add_rule({ rule = rule, properties = tag })
+	add_rule({ rule = rule, properties = tag, except = { type = "dialog" } })
 end
 
-assign_tag({ class = "Firefox" }, { tag = tags[2][2] })
+otherscreen = 1
+if screen.count() > 1 then
+    otherscreen = 2
+end
+
+assign_tag({ class = "Firefox" }, { tag = tags[otherscreen][2] })
+
+add_rule({rule = { class = "Firefox", instance = "Dialog" }, callback = function(c) awful.client.movetotag(tags[mouse.screen][awful.tag.getidx()], c) end})
+
 assign_tag({ class = "Google-chrome-stable" }, { tag = tags[1][3] })
-assign_tag({ class = "Pidgin" }, { tag = tags[1][4] })
+assign_tag({ class = "Pidgin" }, { tag = tags[otherscreen][4] })
 assign_tag({ class = "Evolution" }, { tag = tags[1][5] })
-assign_tag({ class = "Keepassx" }, { tag = tags[1][7] })
+assign_tag({ class = "Keepassx" }, { tag = tags[otherscreen][7] })
 
 float({ class = "Gmrun" })
 float({ class = "X2goclient", instance="x2goclient" })
